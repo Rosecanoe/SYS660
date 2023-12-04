@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Survey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel = "stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+    <h1>Credit Card Preference Recommand Form</h1>
+    <form id="creditCardForm">
+        <label for="hasCreditCard">1. Do you currently have a credit card?</label>
+        <select id="hasCreditCard" name="hasCreditCard">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="hasSSN">2. Do you have a Social Security Number (SSN)?</label>
+        <select id="hasSSN" name="hasSSN">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="creditCardUsage">3. In which field do you want to use this credit card?</label>
+        <select id="creditCardUsage" name="creditCardUsage">
+            <option value="grocery">Grocery</option>
+            <option value="gas">Gas</option>
+            <option value="onlineShopping">Online Shopping</option>
+            <option value="travel">Travel</option>
+            <option value="streamingServices">Streaming Services</option>
+            <option value="restaurant">Restaurant</option>
+        </select>
+
+        <label>4. What annual fee can you afford?</label>
+        <select id="annualFee" name="annualFee">
+            <option value="0">0</option>
+            <option value="100">100 or less</option>
+            <option value="300-500">300-500</option>
+            <option value="500">500 or more</option>
+            <option value="Any">I don't mind</option>
+        </select>
+
+
+        <label for="monthlyExpenses">5. How much do you expect to spend per month on this card?</label>
+        <input type="text" id="monthlyExpenses" name="monthlyExpenses" placeholder="Enter amount">
+
+        <label for="zeroInterest">6. Do you prefer a zero-interest credit card?</label>
+        <select id="zeroInterest" name="zeroInterest">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="pastCreditCards">7. Have you had 5 or more credit cards in the past 2 years?</label>
+        <select id="pastCreditCards" name="pastCreditCards">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

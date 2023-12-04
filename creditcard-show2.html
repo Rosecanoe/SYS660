@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Card Comparison</title>
+    <link rel="stylesheet" href="show-styles.css" type="text/css"> 
+    <!-- <style>
+        /* Add your CSS styles here */
+        .card-container {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            width: 100%;
+            overflow: auto;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .card p {
+            margin: 5px 0;
+        }
+    </style> -->
+</head>
+
+<body>
+    <h1>Credit Card Comparison</h1>
+
+    <div id="cardContainer"></div>
+
+    <script>
+        // Your JavaScript code to populate the card containers goes here
+        var jsonData = {
+            "credit_cards": [
+                // Paste the JSON data here
+                    {
+                    "ID": "1",
+                    "Credit card": "Chase Freedom Unlimited® ",
+                    "Bank": "JPMorgan Chase & Co.",
+                    "Others Rating": "5.0/5.0",
+                    "Annual fee": "$0 ",
+                    "Rewards rate": "1.5%-5%",
+                    "grocery": "5.00 ",
+                    "gas ": "5.00 ",
+                    "online shopping": "5.00 ",
+                    "travel": "5.00 ",
+                    "streaming services": "1.00 ",
+                    "restaurant": "5.00 ",
+                    "Intro offer": "200",
+                    "Intro Offer Requirement": "Spend $500  in the first 3 months",
+                    "Intro requirements per month": "$167 ",
+                    "cents/point": "100",
+                    "Intro offer trans to Money": "$200 ",
+                    "Intro APR": "Y",
+                    "Regular APR": "20.49%-29.24%",
+                    "APR Value": "24.87%",
+                    "SSN required": "Y",
+                    "Special Things": "524"
+                },
+                {
+                    "ID": "2",
+                    "Credit card": "Discover It® Cash Back ",
+                    "Bank": "Discover ",
+                    "Others Rating": "4.9/5.0",
+                    "Annual fee": "$0 ",
+                    "Rewards rate": "1%-5%",
+                    "grocery": "2.00 ",
+                    "gas ": "2.00 ",
+                    "online shopping": "2.00 ",
+                    "travel": "2.00 ",
+                    "streaming services": "2.00 ",
+                    "restaurant": "2.00 ",
+                    "Intro offer": "$0 ",
+                    "Intro Offer Requirement": "N/A",
+                    "Intro requirements per month": "N/A",
+                    "cents/point": "0",
+                    "Intro offer trans to Money": "$0 ",
+                    "Intro APR": "Y",
+                    "Regular APR": "17.24%-28.24%",
+                    "APR Value": "22.74%",
+                    "SSN required": "Y",
+                    "Special Things": ""
+                },
+                {
+                    "ID": "3",
+                    "Credit card": "Wells Fargo Active Cash® Card ",
+                    "Bank": "Wells Fargo & Company",
+                    "Others Rating": "5.0/5.0",
+                    "Annual fee": "$0 ",
+                    "Rewards rate": "2%",
+                    "grocery": "3.00 ",
+                    "gas ": "1.00 ",
+                    "online shopping": "1.00 ",
+                    "travel": "1.00 ",
+                    "streaming services": "3.00 ",
+                    "restaurant": "3.00 ",
+                    "Intro offer": "$200 ",
+                    "Intro Offer Requirement": "Spend $500  in the first 3 months​",
+                    "Intro requirements per month": "$167 ",
+                    "cents/point": "100",
+                    "Intro offer trans to Money": "$200 ",
+                    "Intro APR": "Y",
+                    "Regular APR": "20.24%, 25.24%, or 29.99%",
+                    "APR Value": "25.16%",
+                    "SSN required": "Y",
+                    "Special Things": ""
+                },
+                {
+                    "ID": "4",
+                    "Credit card": "Capital One Savorone Cash Rewards Credit Card ",
+                    "Bank": "Capital One Financial Corporation",
+                    "Others Rating": "5.0/5.0",
+                    "Annual fee": "$0 ",
+                    "Rewards rate": "1%-10%",
+                    "grocery": "3.00 ",
+                    "gas ": "1.00 ",
+                    "online shopping": "1.00 ",
+                    "travel": "5.00 ",
+                    "streaming services": "3.00 ",
+                    "restaurant": "3.00 ",
+                    "Intro offer": "$200 ",
+                    "Intro Offer Requirement": "Spend $500  in the first 3 months​",
+                    "Intro requirements per month": "$167 ",
+                    "cents/point": "100",
+                    "Intro offer trans to Money": "$200 ",
+                    "Intro APR": "N",
+                    "Regular APR": "19.99% - 29.99%",
+                    "APR Value": "24.99%",
+                    "SSN required": "Y",
+                    "Special Things": "Request reports from three credit bureaus"
+                },
+                {
+                    "ID": "5",
+                    "Credit card": "Chase Freedom Flex℠ ",
+                    "Bank": "JPMorgan Chase & Co.",
+                    "Others Rating": "5.0/5.0",
+                    "Annual fee": "$0 ",
+                    "Rewards rate": "1%-5%",
+                    "grocery": "5.00 ",
+                    "gas ": "5.00 ",
+                    "online shopping": "5.00 ",
+                    "travel": "5.00 ",
+                    "streaming services": "5.00 ",
+                    "restaurant": "5.00 ",
+                    "Intro offer": "$200 ",
+                    "Intro Offer Requirement": "Spend $500  in the first 3 months​",
+                    "Intro requirements per month": "$167 ",
+                    "cents/point": "100",
+                    "Intro offer trans to Money": "$200 ",
+                    "Intro APR": "Y",
+                    "Regular APR": "20.49% - 29.24%",
+                    "APR Value": "24.87%",
+                    "SSN required": "Y",
+                    "Special Things": "524"
+                },
+                {
+                    "ID": "6",
+                    "Credit card": "Citi Custom Cash® Card ",
+                    "Bank": "Citibank",
+                    "Others Rating": "4.7/5.0",
+                    "Annual fee": "$0 ",
+                    "Rewards rate": "1%-5%",
+                    "grocery": "5.00 ",
+                    "gas ": "5.00 ",
+                    "online shopping": "5.00 ",
+                    "travel": "5.00 ",
+                    "streaming services": "5.00 ",
+                    "restaurant": "5.00 ",
+                    "Intro offer": "$200 ",
+                    "Intro Offer Requirement": "spend $1,500  in the first 6 months​",
+                    "Intro requirements per month": "$250 ",
+                    "cents/point": "100",
+                    "Intro offer trans to Money": "$200 ",
+                    "Intro APR": "Y",
+                    "Regular APR": "19.24% - 29.24%",
+                    "APR Value": "24.24%",
+                    "SSN required": "N",
+                    "Special Things": ""
+                },
+                {
+                    "ID": "7",
+                    "Credit card": "Citi Double Cash® Card ",
+                    "Bank": "Citibank",
+                    "Others Rating": "4.9/5.0",
+                    "Annual fee": "$0 ",
+                    "Rewards rate": "2%",
+                    "grocery": "2.00 ",
+                    "gas ": "2.00 ",
+                    "online shopping": "2.00 ",
+                    "travel": "2.00 ",
+                    "streaming services": "2.00 ",
+                    "restaurant": "2.00 ",
+                    "Intro offer": "$200 ",
+                    "Intro Offer Requirement": "spend $1,500  in the first 6 months​",
+                    "Intro requirements per month": "$250 ",
+                    "cents/point": "100",
+                    "Intro offer trans to Money": "$200 ",
+                    "Intro APR": "Y",
+                    "Regular APR": "19.24%-29.24%",
+                    "APR Value": "24.24%",
+                    "SSN required": "N",
+                    "Special Things": ""
+                },
+                {
+                    "ID": "8",
+                    "Credit card": "U.S. Bank Altitude® Go Visa Signature® Card ",
+                    "Bank": "U.S. Bancorp",
+                    "Others Rating": "4.9/5.0",
+                    "Annual fee": "$0 ",
+                    "Rewards rate": "1x-4x",
+                    "grocery": "2.00 ",
+                    "gas ": "2.00 ",
+                    "online shopping": "1.00 ",
+                    "travel": "1.00 ",
+                    "streaming services": "2.00 ",
+                    "restaurant": "4.00 ",
+                    "Intro offer": "20,000",
+                    "Intro Offer Requirement": "spend $1,000 in the first 3 months",
+                    "Intro requirements per month": "$333 ",
+                    "cents/point": "1",
+                    "Intro offer trans to Money": "$200 ",
+                    "Intro APR": "Y",
+                    "Regular APR": "18.24% - 29.74%",
+                    "APR Value": "23.99%",
+                    "SSN required": "Y",
+                    "Special Things": ""
+                },
+                {
+                    "ID": "9",
+                    "Credit card": "U.S. Bank Cash+® Visa Signature® Card ",
+                    "Bank": "U.S. Bancorp",
+                    "Others Rating": "4.3/5.0",
+                    "Annual fee": "$0 ",
+                    "Rewards rate": "1%-5%",
+                    "grocery": "5.00 ",
+                    "gas ": "5.00 ",
+                    "online shopping": "5.00 ",
+                    "travel": "5.00 ",
+                    "streaming services": "5.00 ",
+                    "restaurant": "5.00 ",
+                    "Intro offer": "$200 ",
+                    "Intro Offer Requirement": "spend $1,000 in the first 3 months",
+                    "Intro requirements per month": "$250 ",
+                    "cents/point": "100",
+                    "Intro offer trans to Money": "$200 ",
+                    "Intro APR": "Y",
+                    "Regular APR": "19.74% - 29.74%",
+                    "APR Value": "24.74%",
+                    "SSN required": "Y",
+                    "Special Things": ""
+                },
+                {
+                    "ID": "10",
+                    "Credit card": "Capital One Venture Rewards Credit Card ",
+                    "Bank": "Capital One Financial Corporation",
+                    "Others Rating": "4.7/5.0",
+                    "Annual fee": "$95 ",
+                    "Rewards rate": "2x-5x",
+                    "grocery": "2.00 ",
+                    "gas ": "2.00 ",
+                    "online shopping": "2.00 ",
+                    "travel": "5.00 ",
+                    "streaming services": "2.00 ",
+                    "restaurant": "2.00 ",
+                    "Intro offer": "75,000",
+                    "Intro Offer Requirement": "spend $4,000  in the first 3 months",
+                    "Intro requirements per month": "$1,333 ",
+                    "cents/point": "1.6",
+                    "Intro offer trans to Money": "$1,200 ",
+                    "Intro APR": "N",
+                    "Regular APR": "19.99% - 29.99%",
+                    "APR Value": "24.99%",
+                    "SSN required": "Y",
+                    "Special Things": "Request reports from three credit bureaus"
+                },
+                {
+                    "ID": "11",
+                    "Credit card": "Chase Sapphire Preferred® Card ",
+                    "Bank": "JPMorgan Chase & Co.",
+                    "Others Rating": "5.0/5.0",
+                    "Annual fee": "$95 ",
+                    "Rewards rate": "1x-5x",
+                    "grocery": "3.75 ",
+                    "gas ": "1.25 ",
+                    "online shopping": "1.25 ",
+                    "travel": "6.25 ",
+                    "streaming services": "3.75 ",
+                    "restaurant": "3.75 ",
+                    "Intro offer": "60,000",
+                    "Intro Offer Requirement": "Spend $4,000 in the first 3 months",
+                    "Intro requirements per month": "$1,333 ",
+                    "cents/point": "1.6",
+                    "Intro offer trans to Money": "$960 ",
+                    "Intro APR": "N",
+                    "Regular APR": "21.24% - 28.24%",
+                    "APR Value": "24.74%",
+                    "SSN required": "Y",
+                    "Special Things": "524"
+                },
+                {
+                    "ID": "12",
+                    "Credit card": "Chase World Of Hyatt Credit Card ",
+                    "Bank": "JPMorgan Chase & Co.",
+                    "Others Rating": "5.0/5.0",
+                    "Annual fee": "$95 ",
+                    "Rewards rate": "1x-9x",
+                    "grocery": "1.50 ",
+                    "gas ": "1.50 ",
+                    "online shopping": "1.50 ",
+                    "travel": "6.00 ",
+                    "streaming services": "1.50 ",
+                    "restaurant": "3.00 ",
+                    "Intro offer": "30,000",
+                    "Intro Offer Requirement": "Spend $3,000 in the first 3 months,",
+                    "Intro requirements per month": "$1,000 ",
+                    "cents/point": "1.6",
+                    "Intro offer trans to Money": "$480 ",
+                    "Intro APR": "N",
+                    "Regular APR": "21.49% - 28.49%",
+                    "APR Value": "24.99%",
+                    "SSN required": "Y",
+                    "Special Things": "524"
+                },
+                {
+                    "ID": "13",
+                    "Credit card": "American Express Blue Cash Preferred® Card ",
+                    "Bank": "American Express Company",
+                    "Others Rating": "5.0/5.0",
+                    "Annual fee": "$95 ",
+                    "Rewards rate": "1%-6%",
+                    "grocery": "6.00 ",
+                    "gas ": "3.00 ",
+                    "online shopping": "1.00 ",
+                    "travel": "1.00 ",
+                    "streaming services": "6.00 ",
+                    "restaurant": "1.00 ",
+                    "Intro offer": "$250 ",
+                    "Intro Offer Requirement": "spend $3,000 in the first 6 months.",
+                    "Intro requirements per month": "$500 ",
+                    "cents/point": "100",
+                    "Intro offer trans to Money": "$250 ",
+                    "Intro APR": "Y",
+                    "Regular APR": "19.24%-29.99%",
+                    "APR Value": "24.62%",
+                    "SSN required": "N",
+                    "Special Things": "Although SSN is not required, a credit record is required"
+                },
+                {
+                    "ID": "14",
+                    "Credit card": "U.S. Bank Altitude® Connect Visa Signature® Card ",
+                    "Bank": "U.S. Bancorp",
+                    "Others Rating": "4.6/5.0",
+                    "Annual fee": "$95 ",
+                    "Rewards rate": "1x-5x",
+                    "grocery": "2.00 ",
+                    "gas ": "4.00 ",
+                    "online shopping": "1.00 ",
+                    "travel": "4.00 ",
+                    "streaming services": "1.00 ",
+                    "restaurant": "2.00 ",
+                    "Intro offer": "50,000",
+                    "Intro Offer Requirement": "spend $2,000 in the first 4 months",
+                    "Intro requirements per month": "$500 ",
+                    "cents/point": "1",
+                    "Intro offer trans to Money": "$500 ",
+                    "Intro APR": "N",
+                    "Regular APR": "21.24% – 29.24%",
+                    "APR Value": "25.24%",
+                    "SSN required": "Y",
+                    "Special Things": ""
+                },
+                {
+                    "ID": "15",
+                    "Credit card": "American Express Delta Skymiles® Gold Card ",
+                    "Bank": "American Express Company",
+                    "Others Rating": "5.0/5.0",
+                    "Annual fee": "$99 ",
+                    "Rewards rate": "1x-2x",
+                    "grocery": "1.60 ",
+                    "gas ": "0.80 ",
+                    "online shopping": "0.80 ",
+                    "travel": "1.60 ",
+                    "streaming services": "0.80 ",
+                    "restaurant": "1.60 ",
+                    "Intro offer": "40,000",
+                    "Intro Offer Requirement": "Spend $2,000  in the first 6 months",
+                    "Intro requirements per month": "$333 ",
+                    "cents/point": "1.3",
+                    "Intro offer trans to Money": "$520 ",
+                    "Intro APR": "N",
+                    "Regular APR": "20.99% – 29.99%",
+                    "APR Value": "25.49%",
+                    "SSN required": "N",
+                    "Special Things": "Although SSN is not required, a credit record is required"
+                },
+                {
+                    "ID": "16",
+                    "Credit card": "American Express Platinum Card® ",
+                    "Bank": "American Express Company",
+                    "Others Rating": "5.0/5.0",
+                    "Annual fee": "$695 ",
+                    "Rewards rate": "1x-5x",
+                    "grocery": "1.00 ",
+                    "gas ": "1.00 ",
+                    "online shopping": "1.00 ",
+                    "travel": "5.00 ",
+                    "streaming services": "1.00 ",
+                    "restaurant": "1.00 ",
+                    "Intro offer": "80,000",
+                    "Intro Offer Requirement": "spend $8,000 in the first 6 months",
+                    "Intro requirements per month": "$1,333 ",
+                    "cents/point": "1",
+                    "Intro offer trans to Money": "$800 ",
+                    "Intro APR": "N",
+                    "Regular APR": "21.24%-29.24%",
+                    "APR Value": "25.24%",
+                    "SSN required": "N",
+                    "Special Things": "Although SSN is not required, a credit record is required"
+                },
+                {
+                    "ID": "17",
+                    "Credit card": "American Express® Green Card",
+                    "Bank": "American Express Company",
+                    "Others Rating": "4.0/5.0",
+                    "Annual fee": "$150 ",
+                    "Rewards rate": "1x-3x",
+                    "grocery": "1.00 ",
+                    "gas ": "1.00 ",
+                    "online shopping": "1.00 ",
+                    "travel": "3.00 ",
+                    "streaming services": "1.00 ",
+                    "restaurant": "3.00 ",
+                    "Intro offer": "60,000",
+                    "Intro Offer Requirement": "spend $3,000 in the first 6 months",
+                    "Intro requirements per month": "$500 ",
+                    "cents/point": "1",
+                    "Intro offer trans to Money": "$600 ",
+                    "Intro APR": "N",
+                    "Regular APR": "21.24%-29.24%",
+                    "APR Value": "25.24%",
+                    "SSN required": "N",
+                    "Special Things": "Although SSN is not required, a credit record is required"
+                },
+                {
+                    "ID": "18",
+                    "Credit card": "American Express® Green Card",
+                    "Bank": "American Express Company",
+                    "Others Rating": "4.6/5.0",
+                    "Annual fee": "$250 ",
+                    "Rewards rate": "1x-4x",
+                    "grocery": "4.00 ",
+                    "gas ": "1.00 ",
+                    "online shopping": "1.00 ",
+                    "travel": "3.00 ",
+                    "streaming services": "1.00 ",
+                    "restaurant": "4.00 ",
+                    "Intro offer": "60,000",
+                    "Intro Offer Requirement": "spend $6,000 in the first 6 months",
+                    "Intro requirements per month": "$1,000 ",
+                    "cents/point": "1",
+                    "Intro offer trans to Money": "$600 ",
+                    "Intro APR": "N",
+                    "Regular APR": "21.24%-29.24%",
+                    "APR Value": "25.24%",
+                    "SSN required": "N",
+                    "Special Things": "Although SSN is not required, a credit record is required"
+                },
+                {
+                    "ID": "19",
+                    "Credit card": "Chase United Gateway℠ Card",
+                    "Bank": "JPMorgan Chase & Co.",
+                    "Others Rating": "3.3/5.0",
+                    "Annual fee": "$0 ",
+                    "Rewards rate": "1x-2x",
+                    "grocery": "1.00 ",
+                    "gas ": "1.00 ",
+                    "online shopping": "1.00 ",
+                    "travel": "2.00 ",
+                    "streaming services": "1.00 ",
+                    "restaurant": "1.00 ",
+                    "Intro offer": "30,000",
+                    "Intro Offer Requirement": "spend $1,000 in the first 3 months",
+                    "Intro requirements per month": "$333 ",
+                    "cents/point": "1",
+                    "Intro offer trans to Money": "$300 ",
+                    "Intro APR": "Y",
+                    "Regular APR": "21.99%-28.99%",
+                    "APR Value": "25.49%",
+                    "SSN required": "Y",
+                    "Special Things": "524"
+                },
+                {
+                    "ID": "20",
+                    "Credit card": "Bank Of America® Customized Cash Rewards Credit Card",
+                    "Bank": "The Bank of America Corporation",
+                    "Others Rating": "4.0/5.0",
+                    "Annual fee": "$0 ",
+                    "Rewards rate": "1%-3%",
+                    "grocery": "3.00 ",
+                    "gas ": "3.00 ",
+                    "online shopping": "3.00 ",
+                    "travel": "3.00 ",
+                    "streaming services": "3.00 ",
+                    "restaurant": "3.00 ",
+                    "Intro offer": "$200 ",
+                    "Intro Offer Requirement": "spend $1,000 in the first 3 months",
+                    "Intro requirements per month": "$333 ",
+                    "cents/point": "100",
+                    "Intro offer trans to Money": "$200 ",
+                    "Intro APR": "Y",
+                    "Regular APR": "18.24%-28.24%",
+                    "APR Value": "23.24%",
+                    "SSN required": "N",
+                    "Special Things": "Interview required"
+                }
+            ]
+        };
+
+        var container = document.getElementById("cardContainer");
+        var creditCards = jsonData.credit_cards;
+
+        creditCards.forEach(function (card) {
+            var cardContainer = document.createElement("div");
+            cardContainer.classList.add("card-container");
+
+            var title = document.createElement("h2");
+            title.textContent = card["Credit card"];
+
+            var bank = document.createElement("p");
+            bank.textContent = "Bank: " + card["Bank"];
+
+            var annualFee = document.createElement("p");
+            annualFee.textContent = "Annual Fee: " + card["Annual fee"];
+
+            var rewardsRate = document.createElement("p");
+            rewardsRate.textContent = "Rewards Rate: " + card["Rewards rate"];
+
+            var introOffer = document.createElement("p");
+            introOffer.textContent = "Intro Offer: " + card["Intro offer"];
+
+            var introAPR = document.createElement("p");
+            introAPR.textContent = "Intro APR: " + card["Intro APR"];
+
+            var regularAPR = document.createElement("p");
+            regularAPR.textContent = "Regular APR: " + card["Regular APR"];
+
+            var specialThings = document.createElement("p");
+            specialThings.textContent = "Special Things: " + card["Special Things"];
+
+            cardContainer.appendChild(title);
+            cardContainer.appendChild(bank);
+            cardContainer.appendChild(annualFee);
+            cardContainer.appendChild(rewardsRate);
+            cardContainer.appendChild(introOffer);
+            cardContainer.appendChild(introAPR);
+            cardContainer.appendChild(regularAPR);
+            cardContainer.appendChild(specialThings);
+
+            container.appendChild(cardContainer);
+        });
+    </script>
+</body>
+
+</html>
